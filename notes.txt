@@ -1,0 +1,133 @@
+Create react app with vite with npm 
+-npm create vite@latest 
+
+install redux toolkit
+-npm install @reduxjs/toolkit
+-npm install react-redux
+
+Install Tailwind CSS with Vite
+-npm install -D tailwindcss postcss autoprefixer
+
+To initialize it
+npx tailwindcss init -p
+
+
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+
+// Assume you have an API key stored in an environment variable.
+const apiKey = process.env.REACT_APP_API_KEY;
+
+export const myApi = createApi({
+  reducerPath: 'myApi',
+  baseQuery: fetchBaseQuery({
+    baseUrl: 'https://api.example.com/',
+    prepareHeaders: (headers) => {
+      // Set your API key as a header for all requests.
+      headers.set('Authorization', `Bearer ${apiKey}`);
+      return headers;
+    },
+  }),
+  endpoints: (builder) => ({
+    // Define an endpoint for fetching user data.
+    getUserData: builder.query({
+      query: (userId) => `/users/${userId}`,
+    }),
+  }),
+});
+
+// Export a hook for using the getUserData query.
+export const { useGetUserDataQuery } = myApi;
+
+
+
+Example:
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+
+// Replace 'YOUR_API_KEY' with your actual Google Books API key
+const googleBooksApiKey = 'YOUR_API_KEY';
+
+export const googleBooksApi = createApi({
+  reducerPath: 'googleBooksApi',
+  baseQuery: fetchBaseQuery({
+    baseUrl: 'https://www.googleapis.com/books/v1/', // Google Books API base URL
+  }),
+  endpoints: (builder) => ({
+    // Define an endpoint for searching books by title.
+    searchBooksByTitle: builder.query({
+      query: (title) => `volumes?q=${encodeURIComponent(title)}&key=${googleBooksApiKey}`,
+    }),
+  }),
+});
+
+// Export a hook for searching books by title.
+export const { useSearchBooksByTitleQuery } = googleBooksApi;
+
+
+
+
+
+
+
+import React, { useState } from 'react';
+import { useSearchBooksByTitleQuery } from './your-google-books-api-module';
+
+function BookSearch() {
+  const [searchTerm, setSearchTerm] = useState('');
+  const { data, error, isLoading } = useSearchBooksByTitleQuery(searchTerm);
+
+  // Handle loading, error, and display the search results.
+  // data may contain the search results from the Google Books API.
+}
+
+export default BookSearch;
+
+-----------------------
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+
+// Replace 'YOUR_API_KEY' with your actual Google Books API key
+const googleBooksApiKey = 'YOUR_API_KEY';
+
+export const googleBooksApi = createApi({
+  reducerPath: 'googleBooksApi',
+  baseQuery: fetchBaseQuery({
+    baseUrl: 'https://www.googleapis.com/books/v1/', // Google Books API base URL
+    prepareHeaders: (headers) => {
+      // Set custom headers here (if needed)
+      headers.set('Authorization', `Bearer ${yourCustomToken}`);
+      return headers;
+    },
+  }),
+  endpoints: (builder) => ({
+    // Define an endpoint for searching books by title.
+    searchBooksByTitle: builder.query({
+      query: (title) => `volumes?q=${encodeURIComponent(title)}&key=${googleBooksApiKey}`,
+    }),
+    // Define an endpoint for searching books by ISBN.
+    searchBooksByISBN: builder.query({
+      query: (isbn) => `volumes?q=isbn:${encodeURIComponent(isbn)}&key=${googleBooksApiKey}`,
+    }),
+  }),
+});
+
+// Export hooks for searching books by title or ISBN.
+export const { useSearchBooksByTitleQuery, useSearchBooksByISBNQuery } = googleBooksApi;
+
+
+
+
+
+
+import React, { useState } from 'react';
+import { useSearchBooksByISBNQuery } from './your-google-books-api-module';
+
+function BookSearch() {
+  const [isbn, setIsbn] = useState('');
+  const { data, error, isLoading } = useSearchBooksByISBNQuery(isbn);
+
+  // Handle loading, error, and display the search results.
+  // data may contain the search results from the Google Books API.
+}
+
+export default BookSearch;
+
+
