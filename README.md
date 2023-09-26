@@ -17,5 +17,5 @@ Check out the deployed site: [Insightify Demo](https://rizmiya-article-summarize
 
 ## Acknowledgments
 
--Thanks to OpenAI for providing the article summarization capabilities.
--Thanks to Rapid API for the Article Extractor and Summarizer.
+- Thanks to OpenAI for providing the article summarization capabilities.
+- Thanks to Rapid API for the Article Extractor and Summarizer.
