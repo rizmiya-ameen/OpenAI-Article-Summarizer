@@ -1,3 +1,7 @@
+Deploy: push to main -> Vercel redeploys automatically
+https://open-ai-article-summarizer.vercel.app/
+
+
 Create react app with vite with npm 
 -npm create vite@latest 
 

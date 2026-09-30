@@ -4,7 +4,7 @@ Insightify is an AI-powered article summarizer (using Google Gemini) developed u
 
 ## Demo
 
-Check out the deployed site: [Insightify Demo](https://rizmiya-article-summarizer.surge.sh/)
+Check out the deployed site: [Insightify Demo](https://open-ai-article-summarizer.vercel.app/)
 
 ![Insightify Screenshot](screenshot.png)
 
@@ -17,6 +17,7 @@ Check out the deployed site: [Insightify Demo](https://rizmiya-article-summarize
 - Copy a summary or URL to the clipboard with one click.
 - Delete individual history items or clear the whole history.
 - Previously summarized URLs load instantly from history (no extra API call).
+- Uses the lightweight Gemini Flash-Lite model, retrying temporary errors and falling back to Gemini Flash when the service is busy.
 - Word count and estimated reading time for each summary.
 - A user-friendly and intuitive interface.
 
