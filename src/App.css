@@ -28,7 +28,7 @@
 
 .main:after {
   content: "";
-  background-image: url("/src/assets/grid.svg");
+  background-image: url("./assets/grid.svg");
   z-index: 1;
   position: absolute;
   width: 100%;
@@ -83,10 +83,6 @@
   @apply mt-5 text-5xl font-extrabold leading-[1.15] text-black sm:text-6xl text-center;
 }
 
-.blue_gradient {
-  @apply bg-gradient-to-r from-green-600 via-blue-600 to-teal-600 bg-clip-text text-transparent;
-}
-
 .desc {
   @apply mt-5 text-lg text-gray-600 sm:text-xl text-center max-w-2xl;
 }
@@ -113,4 +109,16 @@
 
 .summary_box {
   @apply rounded-xl border border-gray-200 bg-white/20 shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.2)] backdrop-blur p-4;
+}
+
+.copy_btn {
+  @apply w-7 h-7 shrink-0 rounded-full bg-white/10 shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.2)] backdrop-blur flex justify-center items-center cursor-pointer hover:bg-gray-100;
+}
+
+.length_btn {
+  @apply rounded-full border border-gray-200 bg-white px-3 py-1 font-satoshi text-xs font-medium text-gray-600 transition-all hover:border-gray-700;
+}
+
+.length_btn_active {
+  @apply border-black bg-black text-white hover:border-black;
 }
