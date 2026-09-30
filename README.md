@@ -20,7 +20,7 @@ Check out the deployed site: [Insightify Demo](https://rizmiya-article-summarize
 - Word count and estimated reading time for each summary.
 - A user-friendly and intuitive interface.
 
-## Getting Started
+<!-- ## Getting Started
 
 1. Install dependencies: `npm install`
 2. Copy `.env.example` to `.env` and add your free Gemini API key from [Google AI Studio](https://aistudio.google.com/apikey) (no payment card needed).
@@ -30,7 +30,7 @@ Check out the deployed site: [Insightify Demo](https://rizmiya-article-summarize
 
 1. Import the repository in [Vercel](https://vercel.com/new) (framework preset: Vite), or run `npx vercel`.
 2. In Project Settings → Environment Variables, add `GEMINI_API_KEY`.
-3. Deploy. The function in `api/summarize.js` is picked up automatically.
+3. Deploy. The function in `api/summarize.js` is picked up automatically. -->
 
 ## Acknowledgments
 
